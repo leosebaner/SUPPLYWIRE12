@@ -394,7 +394,22 @@
       <a class="hero-btn" href="#" onclick="document.getElementById('modalBG').classList.add('active');return false;">View Sample Report</a>
     </div>
     <div class="hero-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bar_chart.png/400px-Bar_chart.png" alt="Graph Preview" style="max-width:100%;border-radius:10px;box-shadow:0 2px 12px #d9b99326;">
+      <!-- SVG chart as a real image replacement -->
+<div style="background:#f9fbff;border-radius:10px;box-shadow:0 2px 12px #d9b99326;padding:16px 8px 8px 16px;max-width:390px;">
+  <svg width="350" height="180" viewBox="0 0 350 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="35" y="50" width="40" height="110" rx="7" fill="#8dc0e8"/>
+    <rect x="95" y="85" width="40" height="75" rx="7" fill="#5e9cd3"/>
+    <rect x="155" y="100" width="40" height="60" rx="7" fill="#285185"/>
+    <rect x="215" y="30" width="40" height="130" rx="7" fill="#bedaf6"/>
+    <rect x="275" y="120" width="40" height="40" rx="7" fill="#233f67"/>
+    <text x="45" y="175" fill="#555" font-size="14" font-family="sans-serif">A</text>
+    <text x="105" y="175" fill="#555" font-size="14" font-family="sans-serif">B</text>
+    <text x="165" y="175" fill="#555" font-size="14" font-family="sans-serif">C</text>
+    <text x="225" y="175" fill="#555" font-size="14" font-family="sans-serif">D</text>
+    <text x="285" y="175" fill="#555" font-size="14" font-family="sans-serif">E</text>
+    <text x="0" y="15" fill="#285185" font-size="20" font-family="sans-serif" font-weight="bold">SupplyWire Graph</text>
+  </svg>
+</div>
     </div>
   </section>
   <!-- MODAL PDF PREVIEW -->
