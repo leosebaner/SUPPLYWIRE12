@@ -177,25 +177,30 @@
   </style>
 </head>
 <body>
-  <a href="index.html" style="
-  display:inline-block;
-  margin: 1.2rem 0 2rem 0;
-  padding: 0.7rem 1.6rem;
-  border-radius: 8px;
+ <a href="index.html" class="back-home-btn">← Back to Home</a>
+  <style>
+.back-home-btn {
+  position: fixed;
+  left: 2.2vw;
+  bottom: 2.2vw;
+  z-index: 9999;
+  padding: 0.73rem 1.5rem;
+  border-radius: 11px;
   background: #fcb07c;
   color: #232129;
   font-weight: 700;
-  text-decoration: none;
   font-family: 'Lexend',sans-serif;
+  text-decoration: none;
   box-shadow: 0 2px 8px #dab97e22;
   border: none;
-  transition: background 0.18s;
-"
-  onmouseover="this.style.background='#e19950'"
-  onmouseout="this.style.background='#fcb07c'"
->
-  ← Back to Home
-</a>
+  transition: background 0.18s, color 0.14s;
+  font-size: 1.08rem;
+}
+.back-home-btn:hover {
+  background: #e19950;
+  color: #fff;
+}
+<style>
   <div class="report-container">
     <div class="logo-bar">
       <div class="logo">SUPPLYWIRE</div>
