@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Premium Sample Report – SupplyWrite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Lexend:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #f7f5ef;
+      color: #232129;
+      margin: 0;
+      padding: 0;
+    }
+    .report-container {
+      max-width: 720px;
+      background: #fff;
+      margin: 3rem auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px #dab97e32;
+      padding: 2.5rem 2rem 3.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .logo {
+      font-family: 'Lexend', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #c97e1d;
+      letter-spacing: 2px;
+    }
+    .sample-watermark {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #e8d7b6;
+      position: absolute;
+      right: -45px;
+      top: 40px;
+      transform: rotate(-22deg);
+      opacity: 0.17;
+      user-select: none;
+      pointer-events: none;
+    }
+    h1 {
+      font-family: 'Lexend', sans-serif;
+      color: #32240a;
+      font-size: 2.1rem;
+      margin-bottom: 0.35em;
+      margin-top: 1rem;
+    }
+    .desc {
+      color: #685626;
+      font-size: 1.13rem;
+      margin-bottom: 2.5rem;
+      max-width: 75%;
+    }
+    .suppliers-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.3rem;
+      margin-bottom: 2.2rem;
+    }
+    @media (max-width: 820px) {
+      .suppliers-section { grid-template-columns: 1fr; }
+    }
+    .supplier-card {
+      background: #f9f6ef;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px #dab97e22;
+      padding: 1.1rem 1.1rem 1.5rem 1.1rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 265px;
+      overflow: hidden;
+    }
+    .blurred {
+      filter: blur(6px) brightness(1.1);
+      background: #ede6ce;
+      border-radius: 5px;
+      color: transparent;
+      text-shadow: 0 0 8px #fff;
+      user-select: none;
+      pointer-events: none;
+    }
+    .supplier-title {
+      font-family: 'Lexend', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #2e1b02;
+      letter-spacing: 0.7px;
+    }
+    .trust-stars {
+      margin-bottom: 0.4rem;
+      color: #e9b112;
+      font-size: 1.12rem;
+    }
+    .badges {
+      margin-bottom: 0.9rem;
+    }
+    .badge {
+      background: #efe3bc;
+      color: #9b7327;
+      font-size: 0.98rem;
+      padding: 3px 12px;
+      border-radius: 10px;
+      margin-right: 0.5em;
+      display: inline-block;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .info-table {
+      margin-bottom: 0.7rem;
+      width: 100%;
+    }
+    .info-table td {
+      padding: 0.28em 0.4em 0.28em 0;
+      font-size: 1.01rem;
+      color: #484438;
+    }
+    .why-box {
+      margin-top: 0.45rem;
+      background: #fcf3de;
+      color: #746024;
+      border-left: 4px solid #e2a221;
+      border-radius: 6px;
+      padding: 0.65em 1em 0.5em 1em;
+      font-size: 0.99rem;
+    }
+    .chart-section {
+      background: #f4ede3;
+      border-radius: 13px;
+      box-shadow: 0 3px 12px #c97e1d16;
+      margin-top: 2.4rem;
+      padding: 1.5rem 1.3rem 1.3rem 1.3rem;
+      text-align: center;
+    }
+    .chart-title {
+      font-family: 'Lexend', sans-serif;
+      color: #c97e1d;
+      font-size: 1.17rem;
+      margin-bottom: 0.9rem;
+      font-weight: 700;
+    }
+    .graph-legend {
+      display: flex;
+      gap: 1.2em;
+      justify-content: center;
+      margin-bottom: 0.7em;
+      font-size: 0.96em;
+    }
+    .legend-dot {
+      display: inline-block;
+      width: 1.15em;
+      height: 1.15em;
+      border-radius: 50%;
+      margin-right: 0.35em;
+      vertical-align: -0.13em;
+    }
+    footer {
+      text-align: center;
+      color: #baa95c;
+      font-size: 1rem;
+      margin-top: 3.5rem;
+      letter-spacing: 0.02em;
+      padding-bottom: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <div class="logo-bar">
+      <div class="logo">SUPPLYWIRE</div>
+      <span style="font-size:1.02rem; color:#bf9632;">Premium Report Sample</span>
+    </div>
+    <div class="sample-watermark">SAMPLE</div>
+    <h1>Coffee Supplier Report: Ethiopia Focus</h1>
+    <div class="desc">
+      This is a premium example report (info blurred in demo).  
+      You'll receive supplier contacts, trust scores, pricing, and real trade insights—custom to your request.
+    </div>
+    <div class="suppliers-section">
+      <!-- Supplier 1 -->
+      <div class="supplier-card">
+        <div class="supplier-title blurred">Ethiopia Origin Traders Ltd</div>
+        <div class="trust-stars">
+          ★★★★★ <span style="color:#a9a9a9;">(4.9/5 TrustScore)</span>
+        </div>
+        <div class="badges">
+          <span class="badge">Direct Exporter</span>
+          <span class="badge">Organic</span>
+        </div>
+        <table class="info-table">
+          <tr><td><b>Location:</b></td><td class="blurred">Addis Ababa, Ethiopia</td></tr>
+          <tr><td><b>Min. Order:</b></td><td class="blurred">300 kg (1 pallet)</td></tr>
+          <tr><td><b>Unit Price:</b></td><td class="blurred">$3.80–$4.20/kg (FOB)</td></tr>
+          <tr><td><b>Shipping:</b></td><td class="blurred">Global (20+ countries)</td></tr>
+        </table>
+        <div class="why-box">
+          Chosen for direct exporter status, high trust rating, and full traceability.  
+          Bulk buyers welcome. Sample shipments possible.
+        </div>
+      </div>
+      <!-- Supplier 2 -->
+      <div class="supplier-card">
+        <div class="supplier-title blurred">Premium Coffee Solutions</div>
+        <div class="trust-stars">
+          ★★★★☆ <span style="color:#a9a9a9;">(4.7/5 TrustScore)</span>
+        </div>
+        <div class="badges">
+          <span class="badge">Private Label</span>
+          <span class="badge">Fairtrade</span>
+        </div>
+        <table class="info-table">
+          <tr><td><b>Location:</b></td><td class="blurred">Hawassa, Ethiopia</td></tr>
+          <tr><td><b>Min. Order:</b></td><td class="blurred">100 kg (bags)</td></tr>
+          <tr><td><b>Unit Price:</b></td><td class="blurred">$4.60/kg</td></tr>
+          <tr><td><b>Shipping:</b></td><td class="blurred">Europe, US</td></tr>
+        </table>
+        <div class="why-box">
+          Picked for private label flexibility and strong EU logistics.  
+          Suitable for smaller-scale brands wanting real Ethiopian origin.
+        </div>
+      </div>
+    </div>
+    <!-- Price History Graph -->
+    <div class="chart-section">
+      <div class="chart-title">Ethiopia Coffee – Price History (Mock Data)</div>
+      <div class="graph-legend">
+        <span><span class="legend-dot" style="background:#c97e1d;"></span> Bulk/FOB Price</span>
+        <span><span class="legend-dot" style="background:#285185;"></span> Retail/Bag Price</span>
+      </div>
+      <svg width="90%" height="170" viewBox="0 0 400 170">
+        <polyline points="15,120 80,95 150,80 220,95 310,70 385,55"
+          fill="none" stroke="#c97e1d" stroke-width="4" />
+        <polyline points="15,135 80,140 150,120 220,110 310,115 385,98"
+          fill="none" stroke="#285185" stroke-width="4" stroke-dasharray="7,8" />
+        <circle cx="310" cy="70" r="5" fill="#c97e1d" />
+        <circle cx="385" cy="55" r="5" fill="#c97e1d" />
+        <circle cx="310" cy="115" r="5" fill="#285185" />
+        <circle cx="385" cy="98" r="5" fill="#285185" />
+        <text x="30" y="160" font-size="13" fill="#958642">2021</text>
+        <text x="120" y="160" font-size="13" fill="#958642">2022</text>
+        <text x="210" y="160" font-size="13" fill="#958642">2023</text>
+        <text x="325" y="160" font-size="13" fill="#958642">2024</text>
+        <text x="1" y="15" font-size="18" fill="#c97e1d" font-family="Lexend">$/kg</text>
+      </svg>
+      <div style="font-size:0.92rem;color:#9c883e;margin-top:0.7em;">
+        Price range shown for illustrative/demo purposes only. Your premium report includes up-to-date market data.
+      </div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 SUPPLYWIRE. Sample for demo only.
+  </footer>
+</body>
+</html>
