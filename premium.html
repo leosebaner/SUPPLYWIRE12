@@ -38,5 +38,40 @@
     </form>
     <a class="backlink" href="index.html">&larr; Back to main page</a>
   </div>
+  <!-- Add this to your premium.html after the supplier info, before </body> -->
+<section style="margin: 2.5em 0 2em 0; padding: 2em; background: #f6f2ea; border-radius: 13px; box-shadow: 0 2px 16px #e1c29522;">
+  <h2 style="font-family:'Lexend',sans-serif;font-size:1.4rem;margin-bottom:0.6em;color:#be7b21;">Ready to Order?</h2>
+
+  <!-- 20% Upfront Payment Button (PayPal) -->
+  <div style="margin-bottom:1.2em;">
+    <b>Secure your order with a 20% deposit (PayPal/card):</b><br>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline;">
+      <input type="hidden" name="cmd" value="_xclick">
+      <input type="hidden" name="business" value="leosebaner@gmail.com"><!-- YOUR PAYPAL EMAIL HERE -->
+      <input type="hidden" name="item_name" value="SupplyWire Premium Supplier Report (20% Deposit)">
+      <input type="hidden" name="amount" value="40.00"><!-- 20% of $200 -->
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="hidden" name="return" value="https://leosebaner.github.io/SUPPLYWIRE12/thankyou.html">
+      <button type="submit" style="background:#eeb133;color:#232129;padding:0.85em 2.1em;border-radius:8px;font-weight:700;border:none;font-size:1.1em;cursor:pointer;box-shadow:0 2px 6px #c97e1d12;">Pay 20% Upfront ($40)</button>
+    </form>
+    <div style="font-size:0.96em;margin-top:0.5em;color:#644e1d;">
+      (You’ll pay the remaining 80% only after receiving your supplier list.)
+    </div>
+  </div>
+
+  <!-- OR use the order form -->
+  <div style="margin-top:1.7em;">
+    <b>Prefer to pay later? Request your report below:</b>
+    <form action="https://formsubmit.co/leosebaner@gmail.com" method="POST" style="margin-top:0.7em;display:grid;gap:0.8em;">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="SupplyWire Premium Order Request">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="Name" required placeholder="Your Name" style="padding:0.7em;border-radius:7px;border:1px solid #dfd6c3;">
+      <input type="email" name="Email" required placeholder="Your Email" style="padding:0.7em;border-radius:7px;border:1px solid #dfd6c3;">
+      <textarea name="Order details" required placeholder="What exactly do you want? (eg. Coffee origin, quantity, delivery country, etc)" rows="3" style="padding:0.7em;border-radius:7px;border:1px solid #dfd6c3;"></textarea>
+      <button type="submit" style="background:#285185;color:#fff;font-weight:700;font-size:1.07em;padding:0.7em 1.4em;border-radius:7px;border:none;cursor:pointer;">Request Without Payment</button>
+    </form>
+  </div>
+</section>
 </body>
 </html>
