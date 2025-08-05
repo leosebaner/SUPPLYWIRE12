@@ -266,12 +266,14 @@
       border: 1.5px solid #ffe8b3;
       text-align: left;
       position: relative;
-      transition: box-shadow 0.17s, transform 0.16s;
+      transition: box-shadow 0.17s, transform 0.16s, border-color 0.16s;
+      cursor: pointer;
     }
     .price-card:hover {
       box-shadow: 0 10px 42px #ffc56a33;
       transform: translateY(-5px) scale(1.02);
       border-color: #fcb07c;
+      background: #fffbe8;
     }
     .price-tier {
       font-size: 1.18rem;
@@ -309,88 +311,6 @@
       margin: 0.47em 0.65em 0 0;
       flex-shrink: 0;
     }
-    .purchase-section {
-      background: #f9f8f5;
-      padding: 3rem 5vw 2rem 5vw;
-      margin-top: 1.5rem;
-      border-top: 1px solid #ecd6ab;
-      text-align: center;
-    }
-    .purchase-section h2 {
-      font-size: 1.7rem;
-      margin-bottom: 1.1rem;
-      color: #32240a;
-      font-family: 'Lexend', sans-serif;
-    }
-    .purchase-btn {
-      background: #232129;
-      color: #fff8ed;
-      font-size: 1.09rem;
-      padding: 0.9rem 2.3rem;
-      border-radius: 9px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.18s, transform 0.16s;
-      margin: 1rem 0.7rem 0.6rem 0.7rem;
-      border: none;
-      outline: none;
-      display: inline-block;
-      cursor: pointer;
-    }
-    .purchase-btn:hover {
-      background: #fcb07c;
-      color: #232129;
-      transform: translateY(-3px) scale(1.04);
-    }
-    /* Contact Form */
-    .contact-form {
-      max-width: 500px;
-      margin: 2.5rem auto 0 auto;
-      background: #fff;
-      border-radius: 13px;
-      box-shadow: 0 4px 20px #fcb07c24;
-      padding: 2rem 1.4rem 1.6rem 1.4rem;
-      border: 1.5px solid #ecd6ab;
-      display: flex;
-      flex-direction: column;
-    }
-    .contact-form label {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      margin-top: 1rem;
-      color: #32240a;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      padding: 0.7rem;
-      border-radius: 8px;
-      border: 1.3px solid #ffe8b3;
-      margin-bottom: 1rem;
-      font-size: 1.04rem;
-      font-family: 'Manrope', sans-serif;
-      background: #fffdfa;
-    }
-    .contact-form textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-    .contact-form button {
-      background: #232129;
-      color: #fff8ed;
-      font-size: 1.09rem;
-      padding: 0.7rem 2.3rem;
-      border-radius: 9px;
-      font-weight: 700;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      transition: background 0.18s;
-      margin-top: 0.3rem;
-    }
-    .contact-form button:hover {
-      background: #fcb07c;
-      color: #232129;
-    }
     footer {
       background: #181714;
       color: #fff7eb;
@@ -412,11 +332,11 @@
       }
     }
     @media (max-width: 700px) {
-      header, .hero, .features-section, .pricing-section, .purchase-section {
+      header, .hero, .features-section, .pricing-section {
         padding-left: 4vw;
         padding-right: 4vw;
       }
-      .features-section, .pricing-section, .purchase-section {
+      .features-section, .pricing-section {
         padding-top: 2.5rem;
         padding-bottom: 1.5rem;
       }
@@ -533,7 +453,7 @@
   <section class="pricing-section" id="pricing">
     <div class="pricing-title">Pricing Options</div>
     <div class="pricing-cards">
-      <div class="price-card">
+      <a class="price-card" href="basic.html" style="text-decoration:none;">
         <div class="price-tier">BASIC</div>
         <div class="price-main">$50</div>
         <ul class="card-list">
@@ -541,8 +461,8 @@
           <li>Contact & service info</li>
           <li>48h delivery</li>
         </ul>
-      </div>
-      <div class="price-card">
+      </a>
+      <a class="price-card" href="enhanced.html" style="text-decoration:none;">
         <div class="price-tier">ENHANCED</div>
         <div class="price-main">$100</div>
         <ul class="card-list">
@@ -550,8 +470,8 @@
           <li>MOQ, shipping terms, trust rating</li>
           <li>3 business day delivery</li>
         </ul>
-      </div>
-      <div class="price-card">
+      </a>
+      <a class="price-card" href="premium.html" style="text-decoration:none;">
         <div class="price-tier">PREMIUM</div>
         <div class="price-main">$200</div>
         <ul class="card-list">
@@ -560,33 +480,13 @@
           <li>Optional custom graph preview if available</li>
           <li>Up to 5-day delivery</li>
         </ul>
-      </div>
+      </a>
     </div>
-  </section>
-  <!-- PURCHASE SECTION -->
-  <section class="purchase-section" id="purchase">
-    <h2>Request & Purchase</h2>
-    <p>Want a custom supplier report or ready to buy? Choose your tier and send your request. We’ll respond fast.</p>
-    <!-- You can replace these "#" with real Stripe payment links when ready -->
-    <a class="purchase-btn" href="mailto:Leosebaner@gmail.com?subject=SupplyWrite%20Basic%20Request">Request Basic ($50)</a>
-    <a class="purchase-btn" href="mailto:Leosebaner@gmail.com?subject=SupplyWrite%20Enhanced%20Request">Request Enhanced ($100)</a>
-    <a class="purchase-btn" href="mailto:Leosebaner@gmail.com?subject=SupplyWrite%20Premium%20Request">Request Premium ($200)</a>
-    <!-- Stripe/PayPal links can go here when ready -->
   </section>
   <!-- CONTACT -->
   <section class="contact" id="contact" style="max-width: 600px; margin: 4rem auto 0 auto; padding: 0 1rem;">
     <h2 style="font-family: 'Lexend',sans-serif; font-size:1.5rem; color:#232129;">Contact</h2>
     <p style="font-size:1.13rem;">Email: <a href="mailto:Leosebaner@gmail.com" style="color:#d97706; text-decoration:none;">Leosebaner@gmail.com</a></p>
-    <form class="contact-form" action="mailto:Leosebaner@gmail.com" method="POST" enctype="text/plain">
-      <label for="name">Name:</label>
-      <input id="name" name="name" required>
-      <label for="email">Email:</label>
-      <input id="email" name="email" type="email" required>
-      <label for="msg">Message:</label>
-      <textarea id="msg" name="message" required></textarea>
-      <button type="submit">Send Request</button>
-    </form>
-    <p style="margin-top:1.1rem;font-size:0.98rem;color:#c46c0d;">*Direct email is more reliable than the form, but both work. For custom needs, just write your request!</p>
   </section>
   <footer>
     &copy; 2025 SUPPLYWRITE. All rights reserved.
