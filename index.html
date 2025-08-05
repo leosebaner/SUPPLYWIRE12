@@ -485,22 +485,5 @@
   <footer>
     &copy; 2025 SUPPLYWRITE. All rights reserved.
   </footer>
-  <script>
-    // Modal open/close logic
-    document.querySelectorAll('.hero-btn').forEach(btn=>{
-      btn.onclick=function(e){
-        e.preventDefault();
-        document.getElementById('modalBG').classList.add('active');
-      }
-    });
-    document.querySelectorAll('.modal-close').forEach(btn=>{
-      btn.onclick=function(){
-        document.getElementById('modalBG').classList.remove('active');
-      }
-    });
-    document.getElementById('modalBG').onclick=function(e){
-      if(e.target===this) this.classList.remove('active');
-    }
-  </script>
 </body>
 </html>
