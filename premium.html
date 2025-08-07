@@ -2,151 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SupplyWrite – Premium Supplier Report</title>
+  <title>Order Premium Supplier Report – SupplyWrite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Lexend:wght@700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Manrope', sans-serif;
-      background: #faf8f4;
-      color: #232129;
-      margin: 0;
-      padding: 0;
-    }
-    .main-card {
-      max-width: 480px;
-      margin: 3.8rem auto 2.3rem auto;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 36px #ecc27724;
-      padding: 2.5rem 2rem 1.8rem 2rem;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .logo {
-      font-family: 'Lexend', sans-serif;
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: #c77d1a;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(100deg, #c97e1d 10%, #fcb07c 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-      display: inline-block;
-    }
-    h1 {
-      font-family: 'Lexend', sans-serif;
-      font-size: 1.5rem;
-      color: #3e3211;
-      font-weight: 700;
-      margin: 0 0 1.15rem 0;
-      letter-spacing: 0.2px;
-    }
-    .desc {
-      color: #725d30;
-      font-size: 1.13rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    .pay-block {
-      background: #f9f3e4;
-      border-radius: 13px;
-      box-shadow: 0 2px 16px #e1c29514;
-      padding: 1.4em 1.4em 1em 1.4em;
-      margin-bottom: 2rem;
-    }
-    .pay-block strong {
-      color: #c77d1a;
-      font-weight: 700;
-      font-family: 'Lexend',sans-serif;
-      letter-spacing: 0.2px;
-    }
-    .pay-block ul {
-      list-style: disc inside;
-      color: #876a2f;
-      margin: 0.85em 0 0 0.8em;
-      font-size: 1.01em;
-      padding: 0;
-      line-height: 1.6;
-    }
-    .paypal-btn {
-      margin-top: 1.3em;
-      margin-bottom: 0.6em;
-      width: 100%;
-      padding: 1.08em 0;
-      border-radius: 11px;
-      background: linear-gradient(95deg,#ffd27d 0%,#e5b23d 100%);
-      color: #302110;
-      font-family: 'Lexend',sans-serif;
-      font-weight: 800;
-      font-size: 1.11em;
-      border: none;
-      box-shadow: 0 2px 16px #efd49026;
-      cursor: pointer;
-      transition: background 0.13s, color 0.13s, transform 0.13s;
-    }
-    .paypal-btn:hover {
-      background: #fcb07c;
-      color: #1e1202;
-      transform: scale(1.03);
-    }
-    .small-text {
-      color: #9d8950;
-      font-size: 0.97em;
-      margin: 0.7em 0 0 0;
-      text-align: left;
-      line-height: 1.5;
-    }
-    .backlink {
-      color: #b47514;
-      text-decoration: underline;
-      margin: 2.4em 0 0 0;
-      font-family: 'Lexend',sans-serif;
-      font-size: 1em;
-      display: inline-block;
-      transition: color 0.18s;
-    }
-    .backlink:hover { color: #876a2f; }
-    @media (max-width: 560px) {
-      .main-card { padding: 1.1rem 0.3rem 1.3rem 0.3rem; }
-    }
+    body { font-family: 'Manrope', sans-serif; background:#f8f5ef; color:#232129; margin:0; padding:0;}
+    .centered { max-width: 500px; margin: 3.5rem auto 2.5rem auto; background: #fff; border-radius: 14px; padding: 2.3rem 2rem; box-shadow: 0 4px 28px #e1c29526; }
+    h1 { font-family: 'Lexend', sans-serif; color: #c97e1d; font-size: 1.8rem; margin-bottom:0.2em; }
+    .desc { color: #725d30; margin-bottom:1.8em; font-size:1.12rem; }
+    label { display: block; margin-top: 1.3rem; font-weight: 700; color: #79542a;}
+    input, textarea { width:100%; border-radius:8px; padding:0.82rem; margin-top:0.35rem; border: 1.5px solid #ffd49c; font-size:1.06rem;}
+    textarea { min-height: 80px;}
+    .form-block { margin-bottom: 1.3em; }
+    .pay-block { background: #f9f3e4; border-radius: 13px; box-shadow: 0 2px 16px #e1c29514; padding: 1.2em 1em 1em 1em; margin-top:1.8em;}
+    .pay-btn { background:#232129; color:#fff; padding:0.92rem 2.1rem; border:none; border-radius:10px; font-weight:700; font-size:1.07rem; cursor:pointer; transition: background 0.18s, color 0.16s;}
+    .pay-btn:hover { background:#fcb07c; color:#232129;}
+    .backlink { color: #c97e1d; text-decoration: underline; margin-top:2.3rem; display:inline-block; font-weight:600;}
+    .success-message { color: #216b31; font-weight:700; font-size:1.13em; background: #e8f6ea; border-radius:8px; padding: 1em 0.8em; margin-bottom:1.1em; border: 1.5px solid #a2e2b2; }
   </style>
 </head>
 <body>
-  <div class="main-card">
-    <span class="logo">SUPPLYWRITE</span>
-    <h1>Premium Supplier Report <span style="color:#c77d1a;font-weight:700;">– $200</span></h1>
+  <div class="centered">
+    <div class="logo" style="font-family:'Lexend',sans-serif;font-size:1.3em;color:#c97e1d;margin-bottom:0.6em;">SUPPLYWRITE</div>
+    <h1>Order Premium Supplier Report</h1>
     <div class="desc">
-      15–20 vetted suppliers. Real per-unit pricing, custom graph preview (if available), direct contacts.<br>
-      <strong>Priority delivery. Custom sourcing for your request.</strong>
+      <b>$200 (20% deposit = $40 up front)</b><br>
+      15–20 curated suppliers, verified quotes, custom graph preview if available.<br>
+      Delivery in 3–5 business days.<br>
+      <span style="color:#b48624;font-size:1em;">You only pay the rest after you see results. No risk, no BS.</span>
     </div>
-    <div class="pay-block">
-      <strong>Start Your Request – 20% Deposit ($40):</strong>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin:1em 0 0 0;">
+
+    <form class="form-block" action="https://formsubmit.co/Leosebaner@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Premium Supplier Report Order">
+      <input type="hidden" name="_next" value="https://leosebaner.github.io/SUPPLYWIRE12/thankyou.html">
+      <input type="hidden" name="_autoresponse" value="Thanks for your request. We’ll be in touch soon!">
+      <label for="name">Your Name</label>
+      <input id="name" name="name" required>
+      <label for="email">Your Email</label>
+      <input id="email" name="email" type="email" required>
+      <label for="company">Company/Brand (optional)</label>
+      <input id="company" name="company">
+      <label for="taxid">Org Number/VAT/Tax ID (if any, for invoice)</label>
+      <input id="taxid" name="taxid">
+      <label for="country">Country</label>
+      <input id="country" name="country" required>
+      <label for="msg">What are you sourcing?</label>
+      <textarea id="msg" name="message" placeholder="Describe your request, market, requirements..." required></textarea>
+      <button type="submit" class="pay-btn" style="width:100%;margin-top:1.6em;">Send Order Request</button>
+    </form>
+
+    <div class="pay-block" style="margin-top:2em;">
+      <strong>Next Step: Pay 20% Upfront to Start</strong><br>
+      <div style="font-size:0.99em;margin:0.6em 0 1.1em 0;">After submitting your request above, pay the <b>$40</b> deposit to begin the sourcing process.<br>
+        (Remaining $160 is invoiced only after your list is delivered.)</div>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-bottom:0;">
         <input type="hidden" name="cmd" value="_xclick">
         <input type="hidden" name="business" value="leosebaner@gmail.com">
         <input type="hidden" name="item_name" value="SupplyWire Premium Supplier Report (20% Deposit)">
         <input type="hidden" name="amount" value="40.00">
         <input type="hidden" name="currency_code" value="USD">
         <input type="hidden" name="return" value="https://leosebaner.github.io/SUPPLYWIRE12/thankyou.html">
-        <button type="submit" class="paypal-btn">Pay 20% Upfront – $40</button>
+        <button type="submit" class="pay-btn" style="background:#eeb133;color:#232129;">Pay 20% Upfront ($40)</button>
       </form>
-      <div class="small-text">
-        The $40 deposit starts your report.<br>
-        The remaining $160 is only due after you receive your custom supplier list and approve the results.<br>
-        <ul>
-          <li>PayPal or credit/debit card accepted</li>
-          <li>Immediate confirmation sent</li>
-          <li>Refundable if no results delivered</li>
-        </ul>
-      </div>
     </div>
-    <a class="backlink" href="index.html">&larr; Back to Home</a>
+
+    <a class="backlink" href="index.html">&larr; Back to main page</a>
   </div>
 </body>
 </html>
