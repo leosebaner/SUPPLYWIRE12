@@ -2,71 +2,215 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Order Premium Supplier Report – SupplyWrite</title>
+  <title>SUPPLYWRITE – Premium Tier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Lexend:wght@700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Manrope', sans-serif; background:#f8f5ef; color:#232129; margin:0; padding:0;}
-    .centered { max-width: 500px; margin: 3.5rem auto 2.5rem auto; background: #fff; border-radius: 14px; padding: 2.3rem 2rem; box-shadow: 0 4px 28px #e1c29526; }
-    h1 { font-family: 'Lexend', sans-serif; color: #c97e1d; font-size: 1.8rem; margin-bottom:0.2em; }
-    .desc { color: #725d30; margin-bottom:1.8em; font-size:1.12rem; }
-    label { display: block; margin-top: 1.3rem; font-weight: 700; color: #79542a;}
-    input, textarea { width:100%; border-radius:8px; padding:0.82rem; margin-top:0.35rem; border: 1.5px solid #ffd49c; font-size:1.06rem;}
-    textarea { min-height: 80px;}
-    .form-block { margin-bottom: 1.3em; }
-    .pay-block { background: #f9f3e4; border-radius: 13px; box-shadow: 0 2px 16px #e1c29514; padding: 1.2em 1em 1em 1em; margin-top:1.8em;}
-    .pay-btn { background:#232129; color:#fff; padding:0.92rem 2.1rem; border:none; border-radius:10px; font-weight:700; font-size:1.07rem; cursor:pointer; transition: background 0.18s, color 0.16s;}
-    .pay-btn:hover { background:#fcb07c; color:#232129;}
-    .backlink { color: #c97e1d; text-decoration: underline; margin-top:2.3rem; display:inline-block; font-weight:600;}
-    .success-message { color: #216b31; font-weight:700; font-size:1.13em; background: #e8f6ea; border-radius:8px; padding: 1em 0.8em; margin-bottom:1.1em; border: 1.5px solid #a2e2b2; }
+    body { font-family: 'Manrope',sans-serif; background:#f8f5ef; color:#232129; margin:0; padding:0;}
+    .premium-container { max-width:600px; margin:4rem auto 0 auto; background:#fff; border-radius:17px; box-shadow:0 4px 32px #e1c29526; padding:2.5rem 2rem 3.5rem 2rem; }
+    .logo { font-family:'Lexend',sans-serif; font-size:2.1rem; font-weight:800; color:#c97e1d; letter-spacing:2px; margin-bottom:1.2rem;}
+    h1 { font-family:'Lexend',sans-serif; font-size:2.1rem; color:#32240a; margin:0 0 0.9em 0;}
+    .desc { font-size:1.13rem; color:#695626; margin-bottom:2.1em; }
+    .order-btn {
+      background: #232129;
+      color: #fff;
+      font-size: 1.13rem;
+      padding: 1rem 2.2rem;
+      border-radius: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.16s, transform 0.13s;
+      border: none; outline: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #dab97e22;
+      display:inline-block;
+      margin-top:1.2em;
+    }
+    .order-btn:hover {
+      background: #fcb07c;
+      color: #232129;
+      transform: translateY(-2px) scale(1.03);
+    }
+    /* Modal Styles */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(30,19,5,0.25);
+      align-items: flex-end;
+      justify-content: flex-end;
+      transition: background 0.2s;
+    }
+    .modal-bg.active { display: flex; }
+    .modal-panel {
+      background: #fff;
+      width: 430px; max-width:96vw;
+      min-height: 400px;
+      border-radius: 22px 0 0 22px;
+      box-shadow: 0 8px 48px #e1c29532;
+      padding: 2.3em 2em 2.2em 2em;
+      position: relative;
+      animation: slidein 0.23s cubic-bezier(.36,1.25,.46,1.02) 1;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    @keyframes slidein {
+      0% { transform: translateX(120px); opacity:0; }
+      70% { transform: translateX(-12px); opacity:1;}
+      100% { transform: translateX(0);}
+    }
+    .modal-close {
+      position: absolute; top: 1.1em; right: 1.5em;
+      background: #ffe8b3; color: #c48626;
+      border: none; border-radius: 50%;
+      width: 2.2em; height: 2.2em;
+      font-size: 1.5em; font-weight: bold; cursor:pointer;
+      box-shadow: 0 1px 8px #fae2b620;
+      transition: background 0.15s;
+      z-index: 12;
+    }
+    .modal-close:hover { background: #fcb07c; color: #fff;}
+    .modal-panel h2 {
+      font-family:'Lexend',sans-serif; font-size:1.4em; color:#be7b21; margin-bottom:1.2em; margin-top:0;
+    }
+    .modal-form label {
+      font-weight: 700;
+      color: #8d6e36;
+      margin-top: 1.2em;
+      display: block;
+      margin-bottom: 0.3em;
+      font-size:1.05em;
+    }
+    .modal-form input, .modal-form textarea {
+      width: 100%;
+      border-radius: 9px;
+      padding: 0.88em;
+      margin-bottom: 0.4em;
+      border: 1.5px solid #ffd49c;
+      font-size: 1.06em;
+    }
+    .modal-form textarea { min-height: 80px; }
+    .modal-form button {
+      margin-top: 1.25em;
+      background: #232129;
+      color: #fff;
+      padding: 0.9em 0;
+      border: none;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 1.1em;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 2px 8px #dab97e22;
+      transition: background 0.17s, color 0.13s;
+    }
+    .modal-form button:hover { background:#fcb07c; color:#232129; }
+    .success-msg {
+      color: #227d40; background:#ecfbe6; padding:1.1em 1em 1.3em 1em;
+      border-radius: 13px; font-weight:700; font-size:1.16em; margin-bottom:1em; text-align:center;
+      border: 1.5px solid #cbe7b6;
+    }
+    .pay-block {
+      background: #fcf3de; border-radius: 12px;
+      box-shadow: 0 2px 16px #e1c29519; padding: 1.2em 1em 1.2em 1em;
+      margin-top: 1.2em; text-align:center;
+    }
+    .pay-btn {
+      margin-top: 1.1em;
+      background:#eeb133; color:#232129;
+      padding:0.97em 2em;
+      border-radius:10px; font-weight:700;
+      border:none; font-size:1.15em; cursor:pointer;
+      box-shadow:0 2px 6px #c97e1d12;
+      transition:background 0.15s, color 0.13s;
+    }
+    .pay-btn:hover { background:#c97e1d; color:#fff;}
+    @media (max-width:600px) {
+      .premium-container { padding:1.2em 0.5em 2.4em 0.5em; }
+      .modal-panel { padding:1.2em 0.7em; border-radius:22px 0 0 22px; }
+    }
   </style>
 </head>
 <body>
-  <div class="centered">
-    <div class="logo" style="font-family:'Lexend',sans-serif;font-size:1.3em;color:#c97e1d;margin-bottom:0.6em;">SUPPLYWRITE</div>
-    <h1>Order Premium Supplier Report</h1>
+  <div class="premium-container">
+    <div class="logo">SUPPLYWRITE</div>
+    <h1>Premium Tier</h1>
     <div class="desc">
-      <b>$200 (20% deposit = $40 up front)</b><br>
-      15–20 curated suppliers, verified quotes, custom graph preview if available.<br>
-      Delivery in 3–5 business days.<br>
-      <span style="color:#b48624;font-size:1em;">You only pay the rest after you see results. No risk, no BS.</span>
+      <b>$200 – Pay $40 to start</b><br>
+      15–20 curated suppliers. Per-unit pricing, verified quotes, custom graph preview.<br>
+      Priority delivery. Pay 20% upfront. Remaining 80% after you approve the results.
     </div>
-
-    <form class="form-block" action="https://formsubmit.co/Leosebaner@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New Premium Supplier Report Order">
-      <input type="hidden" name="_next" value="https://leosebaner.github.io/SUPPLYWIRE12/thankyou.html">
-      <input type="hidden" name="_autoresponse" value="Thanks for your request. We’ll be in touch soon!">
-      <label for="name">Your Name</label>
-      <input id="name" name="name" required>
-      <label for="email">Your Email</label>
-      <input id="email" name="email" type="email" required>
-      <label for="company">Company/Brand (optional)</label>
-      <input id="company" name="company">
-      <label for="taxid">Org Number/VAT/Tax ID (if any, for invoice)</label>
-      <input id="taxid" name="taxid">
-      <label for="country">Country</label>
-      <input id="country" name="country" required>
-      <label for="msg">What are you sourcing?</label>
-      <textarea id="msg" name="message" placeholder="Describe your request, market, requirements..." required></textarea>
-      <button type="submit" class="pay-btn" style="width:100%;margin-top:1.6em;">Send Order Request</button>
-    </form>
-
-    <div class="pay-block" style="margin-top:2em;">
-      <strong>Next Step: Pay 20% Upfront to Start</strong><br>
-      <div style="font-size:0.99em;margin:0.6em 0 1.1em 0;">After submitting your request above, pay the <b>$40</b> deposit to begin the sourcing process.<br>
-        (Remaining $160 is invoiced only after your list is delivered.)</div>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-bottom:0;">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="leosebaner@gmail.com">
-        <input type="hidden" name="item_name" value="SupplyWire Premium Supplier Report (20% Deposit)">
-        <input type="hidden" name="amount" value="40.00">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="return" value="https://leosebaner.github.io/SUPPLYWIRE12/thankyou.html">
-        <button type="submit" class="pay-btn" style="background:#eeb133;color:#232129;">Pay 20% Upfront ($40)</button>
-      </form>
-    </div>
-
-    <a class="backlink" href="index.html">&larr; Back to main page</a>
+    <button class="order-btn" id="openOrderModal">Pay 20% Upfront & Start Order</button>
+    <a href="index.html" style="display:block;margin-top:2.6em;font-weight:600;color:#c97e1d;text-decoration:underline;">← Back to Home</a>
   </div>
+
+  <!-- Modal (hidden by default) -->
+  <div class="modal-bg" id="orderModal">
+    <div class="modal-panel">
+      <button class="modal-close" id="closeOrderModal" title="Close">&times;</button>
+      <div id="modalContent">
+        <h2>Order Premium Supplier Report</h2>
+        <form class="modal-form" id="premiumOrderForm" action="https://formsubmit.co/ajax/Leosebaner@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Premium Supplier Order">
+          <input type="hidden" name="_captcha" value="false">
+          <label for="name">Your Name</label>
+          <input id="name" name="name" required>
+          <label for="email">Your Email</label>
+          <input id="email" name="email" type="email" required>
+          <label for="company">Company/Brand (optional)</label>
+          <input id="company" name="company">
+          <label for="taxid">Org Number/VAT/Tax ID (if any, for invoice)</label>
+          <input id="taxid" name="taxid">
+          <label for="country">Country</label>
+          <input id="country" name="country" required>
+          <label for="msg">What are you sourcing?</label>
+          <textarea id="msg" name="message" placeholder="Describe your request, market, requirements..." required></textarea>
+          <button type="submit">Send Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Modal logic
+    const openModal = document.getElementById('openOrderModal');
+    const closeModal = document.getElementById('closeOrderModal');
+    const modalBg = document.getElementById('orderModal');
+    const modalContent = document.getElementById('modalContent');
+    openModal.onclick = function(){ modalBg.classList.add('active'); }
+    closeModal.onclick = function(){ modalBg.classList.remove('active'); }
+    modalBg.onclick = function(e){ if(e.target === modalBg) modalBg.classList.remove('active'); }
+    // AJAX Form submission: after request, show payment
+    document.getElementById('premiumOrderForm').onsubmit = async function(e) {
+      e.preventDefault();
+      modalContent.innerHTML = `
+        <div class="success-msg">
+          Request sent!<br>
+          To start your order, pay the 20% deposit below.<br>
+          <span style="font-size:0.98em;color:#c97e1d;">(You’ll get confirmation and receipt by email.)</span>
+        </div>
+        <div class="pay-block">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="leosebaner@gmail.com">
+            <input type="hidden" name="item_name" value="SupplyWire Premium Supplier Report (20% Deposit)">
+            <input type="hidden" name="amount" value="40.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="return" value="https://leosebaner.github.io/SUPPLYWIRE12/thankyou.html">
+            <button type="submit" class="pay-btn">Pay 20% Upfront ($40)</button>
+          </form>
+        </div>
+        <div style="text-align:center;margin-top:1.4em;">
+          <a href="index.html" style="color:#be7b21;text-decoration:underline;font-weight:600;">&larr; Back to main page</a>
+        </div>
+      `;
+      // Actually submit form via AJAX to FormSubmit.co
+      fetch(this.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(this)).toString()
+      });
+    };
+  </script>
 </body>
 </html>
